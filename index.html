@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How Cameras Work - An Educational Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.6;
+            color: #2C3E50;
+            background-color: #FFFFFF;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Style for the accessibility skip link */
+        .skip-link {
+            position: absolute;
+            left: -9999px;
+            top: auto;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+        }
+
+        .skip-link:focus {
+            position: static;
+            width: auto;
+            height: auto;
+        }
+
+
+        h1, h2, h3 {
+            font-family: Georgia, 'Times New Roman', serif;
+            color: #2C3E50;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            border-bottom: 3px solid #3498DB;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 2em;
+            margin-top: 30px;
+            color: #2C3E50;
+        }
+
+        h3 {
+            font-size: 1.5em;
+            margin-top: 20px;
+            color: #3498DB;
+        }
+
+        nav {
+            background-color: #2C3E50;
+            padding: 15px;
+            margin-bottom: 30px;
+            border-radius: 5px;
+            /* New styles for nav */
+            display: inline-block;
+            width: 80%;
+        }
+        
+        /* New style for the image inside the nav */
+        nav img {
+            width: 10%;
+            position: relative;
+            top: 20px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: #FFFFFF;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #3498DB;
+        }
+
+        main {
+            background-color: #FFFFFF;
+        }
+
+        article {
+            margin-bottom: 30px;
+        }
+
+        section {
+            margin-bottom: 30px;
+        }
+
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        ul, ol {
+            margin-left: 40px;
+            margin-bottom: 20px;
+            list-style-type: square; /* Changed list style type */
+        }
+
+        /* The existing styling for the li element is now commented out. */
+        /*
+        li {
+            margin-bottom: 10px;
+        }
+        */
+
+        a {
+            color: #3498DB;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .image-container {
+            margin: 25px 0;
+            text-align: center;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border: 2px solid #3498DB;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .image-caption {
+            font-style: italic;
+            color: #2C3E50;
+            margin-top: 10px;
+            font-size: 0.95em;
+        }
+
+        .highlight {
+            background-color: #E74C3C;
+            color: #FFFFFF;
+            padding: 2px 6px;
+            border-radius: 3px;
+        }
+
+        .info-box {
+            background-color: #ecf0f1;
+            border-left: 4px solid #3498DB;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        /* New styling for the .grid class */
+        .grid {
+            display: grid;
+            grid-template-columns: 40% 40%;
+            justify-content: space-around;
+            align-items: center;
+            row-gap: 20px;
+        }
+        
+        /* New descendent selector for images inside .grid */
+        .grid img {
+            width: 100%;
+        }
+
+        /* New styling for the .flex class */
+        .flex {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        footer {
+            margin-top: 50px;
+            padding: 20px;
+            background-color: #2C3E50;
+            color: #FFFFFF;
+            text-align: center;
+            border-radius: 5px;
+        }
+
+        footer a {
+            color: #3498DB;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to Main Content</a>
+    <nav>
+        <img src="https://placehold.co/100x50/2C3E50/FFFFFF?text=Logo" alt="Camera Logo">
+        <ul>
+            <li><a href="#introduction">Introduction</a></li>
+            <li><a href="#basics">The Basics</a></li>
+            <li><a href="#components">Components</a></li>
+            <li><a href="#types">Camera Types</a></li>
+            <li><a href="#resources">Resources</a></li>
+        </ul>
+    </nav>
+
+    <main id="main-content">
+        <h1>How Cameras Work: A Comprehensive Guide</h1>
+
+        <article id="introduction">
+            <section>
+                <h2>Introduction to Camera Technology</h2>
+                <p>
+                    Cameras are remarkable devices that capture moments in time by recording light. Whether you're using a smartphone, a professional DSLR, or a vintage film camera, the fundamental principle remains the same: <span class="highlight">cameras work by controlling and recording light</span> to create images. Understanding how cameras work opens up a fascinating world where physics, optics, and technology converge to freeze moments in visual form.
+                </p>
+                <p>
+                    From the earliest pinhole cameras to today's advanced digital systems, cameras have evolved tremendously while maintaining their core function. The magic lies in how these devices manipulate light, focus it precisely, and preserve it as a permanent image.
+                </p>
+            </section>
+        </article>
+
+        <article id="basics">
+            <section>
+                <h2>The Basic Principle: Light and Capture</h2>
+                
+                <div class="image-container">
+                    <img src="https://images.unsplash.com/photo-1606925797300-0b35e9d1794e?w=800&h=500&fit=crop" alt="Camera lens showing light refraction and focusing mechanism">
+                    <div class="image-caption">Figure 1: A camera lens focuses light rays onto the sensor or film plane</div>
+                </div>
+
+                <h3>How Light Creates Images</h3>
+                <p>
+                    At its core, a camera functions like the human eye. Light reflects off objects in the environment and enters the camera through an opening. The camera's lens system then focuses this light onto a light-sensitive surface—either photographic film or a digital sensor. This surface records the pattern of light and dark, along with color information, to create a visual representation of the scene.
+                </p>
+
+                <div class="info-box">
+                    <strong>Key Concept:</strong> The amount of light that enters a camera is controlled by two primary mechanisms: the <strong>aperture</strong> (the size of the lens opening) and the <strong>shutter speed</strong> (how long the sensor or film is exposed to light). Together with ISO sensitivity, these form the "exposure triangle" fundamental to all photography.
+                </div>
+
+                <h3>The Path of Light</h3>
+                <p>
+                    When you press the shutter button, a precisely orchestrated sequence occurs:
+                </p>
+                <ol>
+                    <li><strong>Light Entry:</strong> Light from the scene passes through the lens elements, which bend and focus the light rays.</li>
+                    <li><strong>Aperture Control:</strong> The aperture (iris) opens to a predetermined size, controlling how much light enters and the depth of field.</li>
+                    <li><strong>Shutter Release:</strong> The shutter opens for a specific duration, exposing the sensor or film to the focused light.</li>
+                    <li><strong>Image Capture:</strong> The sensor or film records the light pattern, and in digital cameras, this information is processed and saved as a digital file.</li>
+                </ol>
+            </section>
+        </article>
+
+        <article id="components">
+            <section>
+                <h2>Essential Camera Components</h2>
+
+                <div class="flex">
+                    <img src="https://images.unsplash.com/photo-1617005082133-548c4dd27f35?w=800&h=500&fit=crop" alt="Detailed view of camera internal components and mechanism">
+                    <div class="image-caption">Figure 2: Internal components of a modern camera showing the complex mechanical and optical systems</div>
+                </div>
+
+                <h3>The Lens System</h3>
+                <p>
+                    The lens is perhaps the most critical component, responsible for gathering and focusing light. Modern camera lenses consist of multiple glass or plastic elements arranged in groups. These elements work together to:
+                </p>
+                <ul>
+                    <li><strong>Focus Light:</strong> Converge light rays from the scene onto a single focal point on the sensor or film</li>
+                    <li><strong>Correct Aberrations:</strong> Minimize optical distortions such as chromatic aberration, spherical aberration, and vignetting</li>
+                    <li><strong>Control Perspective:</strong> Determine the field of view, from wide-angle to telephoto magnification</li>
+                    <li><strong>Enable Zoom:</strong> In zoom lenses, movable elements allow variable focal lengths without changing lenses</li>
+                </ul>
+
+                <h3>The Image Sensor (Digital) or Film (Analog)</h3>
+                <p>
+                    In digital cameras, the image sensor is a semiconductor device containing millions of light-sensitive pixels. Each pixel converts photons (light particles) into electrical signals. The most common sensor types are:
+                </p>
+                <ul>
+                    <li><strong>CMOS (Complementary Metal-Oxide-Semiconductor):</strong> Fast, energy-efficient sensors used in most modern cameras</li>
+                    <li><strong>CCD (Charge-Coupled Device):</strong> Older technology known for high-quality image capture, though less common today</li>
+                    <li><strong>Full-Frame vs. Crop Sensors:</strong> Larger sensors capture more light and detail but require larger, heavier lenses</li>
+                </ul>
+
+                <p>
+                    Traditional film cameras use photographic film coated with light-sensitive chemicals. When exposed to light, these chemicals undergo a reaction that creates a latent image, which is then developed through chemical processing.
+                </p>
+
+                <h3>The Shutter Mechanism</h3>
+                <p>
+                    The shutter controls the duration of light exposure. Mechanical shutters use physical curtains or blades that open and close, while electronic shutters in modern cameras turn the sensor on and off. Shutter speeds range from several seconds (for low-light photography) to 1/8000th of a second or faster (for freezing rapid motion).
+                </p>
+
+                <h3>Additional Key Components</h3>
+                <ul>
+                    <li><strong>Viewfinder:</strong> Optical or electronic system allowing the photographer to compose the image</li>
+                    <li><strong>Image Processor:</strong> In digital cameras, this chip converts sensor data into viewable images and applies settings</li>
+                    <li><strong>Autofocus System:</strong> Uses sensors and motors to automatically achieve sharp focus on subjects</li>
+                    <li><strong>Light Meter:</strong> Measures scene brightness to calculate proper exposure settings</li>
+                </ul>
+            </section>
+        </article>
+
+        <article id="types">
+            <section>
+                <h2>Types of Cameras</h2>
+
+                <div class="grid">
+                    <img src="https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=800&h=500&fit=crop" alt="Collection of different camera types including DSLR, mirrorless, and vintage cameras">
+                    <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=800&h=500&fit=crop" alt="A person holding a modern mirrorless camera">
+                    <div class="image-caption">Figure 3: Various camera types, each designed for different photographic needs and technologies</div>
+                </div>
+
+                <h3>DSLR (Digital Single-Lens Reflex)</h3>
+                <p>
+                    DSLR cameras use a mirror mechanism to reflect light from the lens up into an optical viewfinder. When you press the shutter button, the mirror flips up, allowing light to reach the sensor. DSLRs are known for their versatility, extensive lens options, and optical viewfinders that show the actual scene through the lens.
+                </p>
+
+                <h3>Mirrorless Cameras</h3>
+                <p>
+                    Mirrorless cameras eliminate the mirror mechanism, making them more compact and lighter. Instead of an optical viewfinder, they use electronic viewfinders (EVF) or the rear LCD screen. This design allows for faster continuous shooting speeds and more advanced autofocus systems.
+                </p>
+
+                <h3>Other Camera Types</h3>
+                <ul>
+                    <li><strong>Point-and-Shoot (Compact):</strong> Simple, portable cameras with fixed or limited zoom lenses, ideal for casual photography</li>
+                    <li><strong>Medium and Large Format:</strong> Professional cameras with significantly larger sensors or film sizes for exceptional detail and image quality</li>
+                    <li><strong>Action Cameras:</strong> Rugged, compact cameras designed for sports and extreme conditions with wide-angle lenses</li>
+                    <li><strong>Smartphone Cameras:</strong> Increasingly sophisticated with multiple lenses, computational photography, and AI-enhanced features</li>
+                </ul>
+            </section>
+        </article>
+
+        <article id="resources">
+            <section>
+                <h2>Learn More</h2>
+                <p>
+                    Photography and camera technology is a vast and fascinating subject. To deepen your understanding, explore these authoritative resources:
+                </p>
+                <ul>
+                    <li><a href="https://www.nationalgeographic.com/photography" target="_blank" rel="noopener noreferrer">National Geographic Photography</a> - Professional photography techniques and stunning visual storytelling</li>
+                    <li>Photography textbooks on optics and camera mechanics</li>
+                    <li>Online courses on digital photography fundamentals</li>
+                    <li>Camera manufacturer technical documentation and white papers</li>
+                </ul>
+
+                <div class="info-box">
+                    <strong>Did You Know?</strong> The first photograph ever taken required an 8-hour exposure time in 1826. Today's cameras can capture images in mere fractions of a second, with some high-speed cameras recording millions of frames per second!
+                </div>
+            </section>
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Camera Education Project | Created for educational purposes</p>
+        <p>Images sourced from <a href="https://unsplash.com" target="_blank" rel="noopener noreferrer">Unsplash</a></p>
+    </footer>
+</body>
+</html>
+
